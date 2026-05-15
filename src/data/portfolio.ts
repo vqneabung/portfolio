@@ -84,6 +84,10 @@ export const about = {
       vi: "Với kiến thức về ASP.NET Core, React, Next.js, PostgreSQL và Docker, cùng khát khao được phát triển trong môi trường chuyên nghiệp, tôi mong muốn tìm kiếm cơ hội để trở thành Backend Developer hoặc Full-Stack Developer, nơi tôi có thể đóng góp và tiếp tục phát triển bản thân.",
       en: "With expertise in ASP.NET Core, React, Next.js, PostgreSQL, and Docker, along with a strong desire to grow in a professional environment, I am seeking opportunities to become a Backend or Full-Stack Developer where I can contribute and continue developing myself.",
     },
+    {
+      vi: "Bên cạnh phát triển phần mềm, tôi vận hành một homelab server cá nhân chạy Fedora với Docker để quản lý container. Sử dụng Portainer và Komodo để giám sát, triển khai các service như ASP.NET Core, NestJS, PostgreSQL, Redis và nhiều service khác. Đây là môi trường tôi tự xây dựng để thực hành DevOps, CI/CD và quản lý hệ thống thực tế.",
+      en: "Beyond software development, I run a personal homelab server on Fedora with Docker for container management. I use Portainer and Komodo to monitor and deploy services including ASP.NET Core, NestJS, PostgreSQL, Redis, and more. This is a self-built environment where I practice DevOps, CI/CD, and real-world system administration.",
+    },
   ] as LocalText[],
   highlights: [
     { label: { vi: "Dự án", en: "Projects" }, value: "4+" },
@@ -199,6 +203,29 @@ export const experiences: Experience[] = [
       },
     ],
   },
+  {
+    title: { vi: "Homelab Server & DevOps", en: "Homelab Server & DevOps" },
+    company: "Personal Project",
+    period: "2025 – Nay",
+    responsibilities: [
+      {
+        vi: "Xây dựng và vận hành homelab server trên máy tính cũ chạy Fedora, sử dụng Docker để container hóa toàn bộ dịch vụ.",
+        en: "Built and operated a homelab server on repurposed hardware running Fedora, using Docker to containerize all services.",
+      },
+      {
+        vi: "Sử dụng Portainer và Komodo để quản lý, giám sát và triển khai container cho các service như ASP.NET Core, NestJS, PostgreSQL, Redis.",
+        en: "Used Portainer and Komodo to manage, monitor, and deploy containers for services such as ASP.NET Core, NestJS, PostgreSQL, Redis.",
+      },
+      {
+        vi: "Thực hành CI/CD workflow, quản lý container networking, volume persistence và systemd service.",
+        en: "Practiced CI/CD workflows, container networking, volume persistence, and systemd service management.",
+      },
+      {
+        vi: "Tự động hóa triển khai và cập nhật dịch vụ thông qua Docker Compose và shell scripting.",
+        en: "Automated service deployment and updates using Docker Compose and shell scripting.",
+      },
+    ],
+  },
 ];
 
 // --------------- Projects ---------------
@@ -210,8 +237,8 @@ export const projects: Project[] = [
     role: { vi: "Full-stack Developer", en: "Full-stack Developer" },
     period: "01/2026 – 05/2026",
     description: {
-      vi: "Hệ thống tư vấn nước hoa tích hợp AI chatbot, hỗ trợ quản lý sản phẩm và đơn hàng.",
-      en: "AI-integrated perfume recommendation system with chatbot, product and order management.",
+      vi: "Hệ thống tư vấn nước hoa tích hợp AI chatbot, hỗ trợ quản lý sản phẩm và đơn hàng. Triển khai các service trên homelab server Fedora với Docker.",
+      en: "AI-integrated perfume recommendation system with chatbot, product and order management. Deployed services on Fedora homelab server with Docker.",
     },
     technologies: [
       "React", "Flutter", "ASP.NET Core", "NestJS", "PostgreSQL",
@@ -245,6 +272,10 @@ export const projects: Project[] = [
         vi: "Dockerize các service để hỗ trợ development và deployment.",
         en: "Dockerized services to support development and deployment.",
       },
+      {
+        vi: "Triển khai và vận hành toàn bộ service trên homelab server Fedora, sử dụng Portainer để quản lý container và monitoring.",
+        en: "Deployed and operated all services on a Fedora homelab server, using Portainer for container management and monitoring.",
+      },
     ],
   },
   {
@@ -253,10 +284,10 @@ export const projects: Project[] = [
     role: { vi: "Full-stack Developer", en: "Full-stack Developer" },
     period: "09/2025 – 11/2025",
     description: {
-      vi: "Nền tảng hỗ trợ học tập với tính năng upload tài liệu, flashcard và phân tích AI.",
-      en: "Learning platform with document upload, flashcards, and AI analysis features.",
+      vi: "Nền tảng hỗ trợ học tập với tính năng upload tài liệu, flashcard và phân tích AI. Các service được triển khai trên homelab server cá nhân.",
+      en: "Learning platform with document upload, flashcards, and AI analysis features. Services deployed on personal homelab server.",
     },
-    technologies: ["React", "ASP.NET Core", "SQL Server", "PostgreSQL"],
+    technologies: ["React", "ASP.NET Core", "SQL Server", "PostgreSQL", "Docker", "Linux (Fedora)"],
     links: [
       { label: { vi: "Front-end", en: "Front-end" }, url: "https://github.com/FPTU-ChillGuys/studeehub-frontend" },
       { label: { vi: "Back-end", en: "Back-end" }, url: "https://github.com/FPTU-ChillGuys/studeehub-backend" },
