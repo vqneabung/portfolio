@@ -16,16 +16,16 @@ const en: Translation = {
   // ---------- Hero ----------
   hero: {
     subtitle: "Software Developer",
-    title: "Software Development",
-    brief: "Final-year Software Engineering student at FPT University, passionate about backend system development and modern web applications.",
+    title: "Full-Stack Developer",
   },
 
   // ---------- About ----------
   about: {
     heading: "About Me",
     description: [
-      "Final-year Software Engineering student at FPT University with experience in backend and full-stack development through personal and team projects.",
-      "Skilled in ASP.NET Core, React, PostgreSQL, Redis, Docker, and RESTful API development. Passionate about backend system development, performance optimization, and building modern web applications.",
+      "I am a recent Software Engineering graduate with Good honors (7.8/10) from FPT University — a 4-year journey that nurtured my programming passion and built a solid foundation in C# and TypeScript.",
+      "My graduation thesis — PerfumeGPT — is an AI-powered web application where I served as Full-Stack Developer, designing and deploying both backend and frontend systems. Additionally, my internship at Fsoft taught me professional workflows, practical problem-solving skills, and teamwork.",
+      "With expertise in ASP.NET Core, React, Next.js, PostgreSQL, and Docker, along with a strong desire to grow in a professional environment, I am seeking opportunities to become a Backend or Full-Stack Developer where I can contribute and continue developing myself.",
     ],
     highlights: {
       projects: "Projects",

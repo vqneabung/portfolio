@@ -102,16 +102,16 @@ function ProjectCard({
           <DialogTrigger render={<Button variant="default" size="sm" />}>
             {t.projects.detail}
           </DialogTrigger>
-          <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
+          <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto lg:max-w-3xl">
             <DialogHeader>
-              <DialogTitle>{project.name}</DialogTitle>
+              <DialogTitle className="text-xl">{project.name}</DialogTitle>
               <DialogDescription>
                 {lt(project.role, locale)} · {project.period}
                 {project.teamSize > 0 && ` · ${project.teamSize} ${t.projects.members}`}
               </DialogDescription>
             </DialogHeader>
             <Separator className="my-2" />
-            <div className="space-y-4">
+            <div className="space-y-5">
               <p className="text-sm text-muted-foreground">
                 {lt(project.description, locale)}
               </p>
@@ -169,24 +169,6 @@ function ProjectCard({
             </div>
           </DialogContent>
         </Dialog>
-
-        {project.links.length > 0 && (
-          <Button
-            variant="outline"
-            size="sm"
-            nativeButton={false}
-            render={
-              <a
-                href={project.links[0].url}
-                target="_blank"
-                rel="noopener noreferrer"
-              />
-            }
-          >
-            <ExternalLink className="mr-1 size-3" />
-            GitHub
-          </Button>
-        )}
       </CardFooter>
     </Card>
   );

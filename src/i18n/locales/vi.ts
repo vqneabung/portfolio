@@ -13,16 +13,16 @@ const vi = {
   // ---------- Hero ----------
   hero: {
     subtitle: "Software Developer",
-    title: "Phát triển Phần mềm",
-    brief: "Sinh viên năm cuối ngành Kỹ thuật Phần mềm tại Đại học FPT, đam mê phát triển hệ thống backend và ứng dụng web hiện đại.",
+    title: "Full-Stack Developer",
   },
 
   // ---------- About ----------
   about: {
     heading: "Giới thiệu",
     description: [
-      "Sinh viên năm cuối ngành Kỹ thuật Phần mềm tại Đại học FPT, có kinh nghiệm phát triển ứng dụng backend và full-stack thông qua các dự án cá nhân và nhóm.",
-      "Có kiến thức và kinh nghiệm làm việc với ASP.NET Core, React, PostgreSQL, Redis, Docker và RESTful API. Yêu thích phát triển hệ thống backend, tối ưu hiệu năng và xây dựng các ứng dụng web hiện đại.",
+      "Tôi là Cử nhân Kỹ thuật Phần mềm mới tốt nghiệp loại Khá (7.8/10) tại Đại học FPT — một chặng đường 4 năm nuôi dưỡng đam mê lập trình và xây dựng nền tảng vững chắc về C# và TypeScript.",
+      "Đồ án tốt nghiệp của tôi — PerfumeGPT — là một AI-powered web application với vai trò Full-Stack Developer, nơi tôi thiết kế và triển khai toàn bộ hệ thống backend lẫn frontend. Bên cạnh đó, kỳ thực tập tại Fsoft đã giúp tôi học hỏi quy trình làm việc chuyên nghiệp, kỹ năng giải quyết vấn đề thực tế và tinh thần làm việc nhóm.",
+      "Với kiến thức về ASP.NET Core, React, Next.js, PostgreSQL và Docker, cùng khát khao được phát triển trong môi trường chuyên nghiệp, tôi mong muốn tìm kiếm cơ hội để trở thành Backend Developer hoặc Full-Stack Developer, nơi tôi có thể đóng góp và tiếp tục phát triển bản thân.",
     ],
     highlights: {
       projects: "Dự án",

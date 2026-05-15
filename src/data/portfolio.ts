@@ -60,11 +60,11 @@ export interface Certification {
 
 export const hero = {
   name: "Vũ Quang Nguyên",
-  title: { vi: "Phát triển Phần mềm", en: "Software Development" },
+  title: { vi: "Full-Stack Developer", en: "Full-Stack Developer" },
   subtitle: "Software Developer",
   brief: {
-    vi: "Sinh viên năm cuối ngành Kỹ thuật Phần mềm tại Đại học FPT, đam mê phát triển hệ thống backend và ứng dụng web hiện đại.",
-    en: "Final-year Software Engineering student at FPT University, passionate about backend system development and modern web applications.",
+    vi: "Đam mê lập trình với nền tảng C# và TypeScript vững chắc. Tốt nghiệp loại Khá (7.8/10) ngành Kỹ thuật Phần mềm tại Đại học FPT. Đã hoàn thành đồ án PerfumeGPT với vai trò Full-Stack Developer, xây dựng hệ thống AI-powered web application. Từng thực tập tại Fsoft, học hỏi quy trình làm việc chuyên nghiệp và kỹ năng giải quyết vấn đề thực tế. Mong muốn tìm kiếm cơ hội phát triển sự nghiệp tại môi trường chuyên nghiệp để trở thành Backend Developer hoặc Full-Stack Developer.",
+    en: "Passionate programmer with a solid foundation in C# and TypeScript. Graduated with Good honors (7.8/10) in Software Engineering from FPT University. Completed the PerfumeGPT thesis as a Full-Stack Developer, building an AI-powered web application system. Interned at Fsoft, gaining professional workflow experience and practical problem-solving skills. Seeking professional opportunities to grow as a Backend or Full-Stack Developer.",
   },
 };
 
@@ -73,17 +73,21 @@ export const hero = {
 export const about = {
   description: [
     {
-      vi: "Sinh viên năm cuối ngành Kỹ thuật Phần mềm tại Đại học FPT, có kinh nghiệm phát triển ứng dụng backend và full-stack thông qua các dự án cá nhân và nhóm.",
-      en: "Final-year Software Engineering student at FPT University with experience in backend and full-stack development through personal and team projects.",
+      vi: "Tôi là Cử nhân Kỹ thuật Phần mềm mới tốt nghiệp loại Khá (7.8/10) tại Đại học FPT — một chặng đường 4 năm nuôi dưỡng đam mê lập trình và xây dựng nền tảng vững chắc về C# và TypeScript.",
+      en: "I am a recent Software Engineering graduate with Good honors (7.8/10) from FPT University — a 4-year journey that nurtured my programming passion and built a solid foundation in C# and TypeScript.",
     },
     {
-      vi: "Có kiến thức và kinh nghiệm làm việc với ASP.NET Core, React, PostgreSQL, Redis, Docker và RESTful API. Yêu thích phát triển hệ thống backend, tối ưu hiệu năng và xây dựng các ứng dụng web hiện đại.",
-      en: "Skilled in ASP.NET Core, React, PostgreSQL, Redis, Docker, and RESTful API development. Passionate about backend system development, performance optimization, and building modern web applications.",
+      vi: "Đồ án tốt nghiệp của tôi — PerfumeGPT — là một AI-powered web application với vai trò Full-Stack Developer, nơi tôi thiết kế và triển khai toàn bộ hệ thống backend lẫn frontend. Bên cạnh đó, kỳ thực tập tại Fsoft đã giúp tôi học hỏi quy trình làm việc chuyên nghiệp, kỹ năng giải quyết vấn đề thực tế và tinh thần làm việc nhóm.",
+      en: "My graduation thesis — PerfumeGPT — is an AI-powered web application where I served as Full-Stack Developer, designing and deploying both backend and frontend systems. Additionally, my internship at Fsoft taught me professional workflows, practical problem-solving skills, and teamwork.",
+    },
+    {
+      vi: "Với kiến thức về ASP.NET Core, React, Next.js, PostgreSQL và Docker, cùng khát khao được phát triển trong môi trường chuyên nghiệp, tôi mong muốn tìm kiếm cơ hội để trở thành Backend Developer hoặc Full-Stack Developer, nơi tôi có thể đóng góp và tiếp tục phát triển bản thân.",
+      en: "With expertise in ASP.NET Core, React, Next.js, PostgreSQL, and Docker, along with a strong desire to grow in a professional environment, I am seeking opportunities to become a Backend or Full-Stack Developer where I can contribute and continue developing myself.",
     },
   ] as LocalText[],
   highlights: [
     { label: { vi: "Dự án", en: "Projects" }, value: "4+" },
-    { label: { vi: "Kinh nghiệm", en: "Experience" }, value: "1 năm+" },
+    // { label: { vi: "Kinh nghiệm", en: "Experience" }, value: "1 năm+" },
     { label: { vi: "Công nghệ", en: "Technologies" }, value: "15+" },
   ],
 };
@@ -127,7 +131,7 @@ export const skills: Skill[] = [
   { name: "Visual Studio", category: "tool", icon: "visualstudio" },
   { name: "Portainer/Komodo", category: "tool" },
   { name: "Jira", category: "tool" },
-  { name: "Figma", category: "tool", icon: "figma" },
+  // { name: "Figma", category: "tool", icon: "figma" },
   { name: "OpenCode", category: "tool" },
   { name: "RESTful API", category: "tool" },
   // Soft skills
@@ -173,7 +177,7 @@ export const skills: Skill[] = [
 
 export const experiences: Experience[] = [
   {
-    title: { vi: "Phát triển Phần mềm (Intern)", en: "Software Development Intern" },
+    title: { vi: "Phát triển Phần mềm (Apprenticeship)", en: "Software Development Apprenticeship" },
     company: "FPT Software HCM",
     period: "01/2025 – 04/2025",
     responsibilities: [
