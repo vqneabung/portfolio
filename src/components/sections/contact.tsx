@@ -61,7 +61,7 @@ export function Contact() {
         className={`section-container reveal ${isVisible ? "visible" : ""}`}
       >
         <div className="mb-10 flex items-center gap-3">
-          <Send className="size-6 text-primary" />
+          <Send className="size-5 text-muted-foreground" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
             {t.contact.heading}
           </h2>
@@ -70,33 +70,21 @@ export function Contact() {
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Contact info cards */}
           <div className="space-y-4">
-            <p className="text-muted-foreground">
-              {t.contact.description}
-            </p>
+            <p className="text-muted-foreground">{t.contact.description}</p>
             <div className="space-y-3">
               {contactItems.map((item) => (
-                <Card key={item.label} className="bg-card">
+                <Card key={item.label}>
                   <CardContent className="flex items-center gap-4 p-4">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                      <item.icon className="size-5 text-primary" />
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted">
+                      <item.icon className="size-5 text-muted-foreground" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm text-muted-foreground">
-                        {item.label}
-                      </p>
+                      <p className="text-sm text-muted-foreground">{item.label}</p>
                       {item.href ? (
                         <a
                           href={item.href}
-                          target={
-                            item.href.startsWith("http")
-                              ? "_blank"
-                              : undefined
-                          }
-                          rel={
-                            item.href.startsWith("http")
-                              ? "noopener noreferrer"
-                              : undefined
-                          }
+                          target={item.href.startsWith("http") ? "_blank" : undefined}
+                          rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                           className="font-medium transition-colors hover:text-primary"
                         >
                           {item.value}
@@ -112,9 +100,9 @@ export function Contact() {
           </div>
 
           {/* Quick email CTA */}
-          <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-8 text-center">
-            <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-primary/10">
-              <Mail className="size-8 text-primary" />
+          <div className="flex flex-col items-center justify-center rounded-xl border border-border p-8 text-center">
+            <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-muted">
+              <Mail className="size-8 text-muted-foreground" />
             </div>
             <h3 className="mb-2 text-xl font-semibold">{t.contact.ctaTitle}</h3>
             <p className="mb-6 text-sm text-muted-foreground">
@@ -124,7 +112,7 @@ export function Contact() {
               <Mail className="mr-2 size-4" />
               {t.contact.sendEmail}
             </Button>
-            <Separator className="my-6 w-3/4 opacity-30" />
+            <Separator className="my-6 w-3/4 opacity-20" />
             <div className="flex gap-3">
               <Button variant="outline" size="icon" nativeButton={false} render={<a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" />}>
                 <GithubIcon className="size-4" />

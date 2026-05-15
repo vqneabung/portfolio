@@ -18,7 +18,7 @@ export function About() {
         className={`section-container reveal ${isVisible ? "visible" : ""}`}
       >
         <div className="mb-10 flex items-center gap-3">
-          <User className="size-6 text-primary" />
+          <User className="size-5 text-muted-foreground" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
             {t.about.heading}
           </h2>
@@ -35,16 +35,11 @@ export function About() {
           </div>
 
           {/* Highlights */}
-          <div className="flex flex-row gap-4 lg:flex-col lg:gap-6">
+          <div className="flex flex-row gap-4 lg:flex-col lg:gap-4">
             {about.highlights.map((h) => (
-              <Card
-                key={lt(h.label, locale)}
-                className="gradient-border flex-1 bg-card"
-              >
+              <Card key={lt(h.label, locale)} className="flex-1">
                 <CardContent className="flex flex-col items-center justify-center p-6 text-center">
-                  <span className="text-3xl font-bold text-primary">
-                    {h.value}
-                  </span>
+                  <span className="text-3xl font-bold">{h.value}</span>
                   <span className="mt-1 text-sm text-muted-foreground">
                     {lt(h.label, locale)}
                   </span>
@@ -54,7 +49,7 @@ export function About() {
           </div>
         </div>
 
-        <Separator className="my-12 opacity-30" />
+        <Separator className="my-12 opacity-20" />
       </div>
     </section>
   );

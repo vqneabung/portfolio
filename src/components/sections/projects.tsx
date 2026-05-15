@@ -35,7 +35,7 @@ export function Projects() {
         className={`section-container reveal ${isVisible ? "visible" : ""}`}
       >
         <div className="mb-10 flex items-center gap-3">
-          <FolderOpen className="size-6 text-primary" />
+          <FolderOpen className="size-5 text-muted-foreground" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
             {t.projects.heading}
           </h2>
@@ -62,7 +62,6 @@ function ProjectCard({
 
   return (
     <Card
-      className="gradient-border bg-card transition-shadow hover:shadow-lg hover:shadow-primary/5"
       style={
         { "--reveal-delay": `${index * 80}ms` } as React.CSSProperties
       }
@@ -70,15 +69,12 @@ function ProjectCard({
       <CardHeader>
         <div className="flex items-start justify-between gap-2">
           <CardTitle className="text-lg">{project.name}</CardTitle>
-          <Badge
-            variant="outline"
-            className="shrink-0 border-secondary-accent/40 text-secondary-accent"
-          >
+          <Badge variant="outline" className="shrink-0">
             {lt(project.role, locale)}
           </Badge>
         </div>
         <CardDescription>
-          {project.period}{" "}
+          {project.period}
           {project.teamSize > 0 && (
             <span className="ml-2 inline-flex items-center gap-1">
               · <Users className="size-3" /> {project.teamSize} {t.projects.members}
@@ -106,7 +102,7 @@ function ProjectCard({
           <DialogTrigger render={<Button variant="default" size="sm" />}>
             {t.projects.detail}
           </DialogTrigger>
-          <DialogContent className="max-h-[85vh] overflow-y-auto bg-card sm:max-w-lg">
+          <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
             <DialogHeader>
               <DialogTitle>{project.name}</DialogTitle>
               <DialogDescription>

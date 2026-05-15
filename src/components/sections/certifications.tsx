@@ -18,7 +18,7 @@ export function Certifications() {
         className={`section-container reveal ${isVisible ? "visible" : ""}`}
       >
         <div className="mb-10 flex items-center gap-3">
-          <Award className="size-6 text-primary" />
+          <Award className="size-5 text-muted-foreground" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
             {t.certifications.heading}
           </h2>
@@ -28,18 +28,12 @@ export function Certifications() {
           {certifications.map((cert, i) => (
             <Card
               key={i}
-              className="gradient-border bg-card"
-              style={
-                { "--reveal-delay": `${i * 80}ms` } as React.CSSProperties
-              }
+              style={{ "--reveal-delay": `${i * 80}ms` } as React.CSSProperties}
             >
               <CardContent className="flex flex-col gap-2 p-5">
                 <h3 className="font-semibold">{cert.name}</h3>
                 <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                <Badge
-                  variant="outline"
-                  className="w-fit border-secondary-accent/40 text-secondary-accent"
-                >
+                <Badge variant="outline" className="w-fit">
                   {cert.year}
                 </Badge>
               </CardContent>

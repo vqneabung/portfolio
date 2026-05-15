@@ -18,7 +18,7 @@ export function Experience() {
         className={`section-container reveal ${isVisible ? "visible" : ""}`}
       >
         <div className="mb-10 flex items-center gap-3">
-          <Briefcase className="size-6 text-primary" />
+          <Briefcase className="size-5 text-muted-foreground" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
             {t.experience.heading}
           </h2>
@@ -34,16 +34,11 @@ export function Experience() {
               {/* Timeline dot */}
               <div className="absolute left-[11px] top-2 size-3 rounded-full bg-primary sm:left-[-5px]" />
 
-              <Card className="gradient-border bg-card">
+              <Card>
                 <CardHeader>
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                     <CardTitle className="text-lg">{lt(exp.title, locale)}</CardTitle>
-                    <Badge
-                      variant="outline"
-                      className="w-fit border-primary/40 text-primary"
-                    >
-                      {exp.period}
-                    </Badge>
+                    <Badge variant="outline">{exp.period}</Badge>
                   </div>
                   <p className="text-sm text-muted-foreground">{exp.company}</p>
                 </CardHeader>

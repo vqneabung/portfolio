@@ -19,6 +19,8 @@ export interface Skill {
   category: "language" | "framework" | "database" | "tool" | "softskill" | "language_other";
   /** Translated name per locale (optional – falls back to name) */
   nameLocal?: { vi: string; en: string };
+  /** Devicon slug – maps to https://devicon.dev/ icon set */
+  icon?: string;
 }
 
 export interface Experience {
@@ -100,32 +102,32 @@ export const personalInfo = {
 
 export const skills: Skill[] = [
   // Ngôn ngữ lập trình
-  { name: "Java", category: "language" },
-  { name: "JavaScript", category: "language" },
-  { name: "TypeScript", category: "language" },
-  { name: "HTML5/CSS3", category: "language" },
-  { name: "C#", category: "language" },
-  { name: "Kotlin", category: "language" },
+  { name: "Java", category: "language", icon: "java" },
+  { name: "JavaScript", category: "language", icon: "javascript" },
+  { name: "TypeScript", category: "language", icon: "typescript" },
+  { name: "HTML5/CSS3", category: "language", icon: "html5" },
+  { name: "C#", category: "language", icon: "csharp" },
+  { name: "Kotlin", category: "language", icon: "kotlin" },
   // Framework
-  { name: "React", category: "framework" },
-  { name: "Next.js", category: "framework" },
-  { name: "NestJS", category: "framework" },
-  { name: "ASP.NET Core", category: "framework" },
-  { name: "Flutter", category: "framework" },
+  { name: "React", category: "framework", icon: "react" },
+  { name: "Next.js", category: "framework", icon: "nextjs" },
+  { name: "NestJS", category: "framework", icon: "nestjs" },
+  { name: "ASP.NET Core", category: "framework", icon: "dotnetcore" },
+  { name: "Flutter", category: "framework", icon: "flutter" },
   // Database
-  { name: "SQL Server", category: "database" },
-  { name: "PostgreSQL", category: "database" },
-  { name: "Redis", category: "database" },
-  { name: "Supabase", category: "database" },
+  { name: "SQL Server", category: "database", icon: "microsoftsqlserver" },
+  { name: "PostgreSQL", category: "database", icon: "postgresql" },
+  { name: "Redis", category: "database", icon: "redis" },
+  { name: "Supabase", category: "database", icon: "supabase" },
   // Tool
-  { name: "Git/GitHub", category: "tool" },
-  { name: "Docker", category: "tool" },
-  { name: "Postman", category: "tool" },
-  { name: "VS Code", category: "tool" },
-  { name: "Visual Studio", category: "tool" },
+  { name: "Git/GitHub", category: "tool", icon: "git" },
+  { name: "Docker", category: "tool", icon: "docker" },
+  { name: "Postman", category: "tool", icon: "postman" },
+  { name: "VS Code", category: "tool", icon: "vscode" },
+  { name: "Visual Studio", category: "tool", icon: "visualstudio" },
   { name: "Portainer/Komodo", category: "tool" },
   { name: "Jira", category: "tool" },
-  { name: "Figma", category: "tool" },
+  { name: "Figma", category: "tool", icon: "figma" },
   { name: "OpenCode", category: "tool" },
   { name: "RESTful API", category: "tool" },
   // Soft skills

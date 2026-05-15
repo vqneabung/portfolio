@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, Code2, Globe } from "lucide-react";
+import { Menu, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -33,15 +33,14 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
+    <header className="fixed top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
       <nav className="section-container flex h-[72px] items-center justify-between">
         {/* Logo */}
         <a
           href="#hero"
-          className="flex items-center gap-2 text-lg font-bold tracking-tight transition-colors hover:text-primary"
+          className="text-lg font-bold tracking-tight transition-colors hover:text-primary"
         >
-          <Code2 className="size-5 text-primary" />
-          <span className="gradient-text">VQN</span>
+          VQN
         </a>
 
         {/* Desktop nav links */}
@@ -84,10 +83,9 @@ export function Navbar() {
                 <a
                   href="#hero"
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-2 text-lg font-bold"
+                  className="text-lg font-bold"
                 >
-                  <Code2 className="size-5 text-primary" />
-                  <span className="gradient-text">VQN</span>
+                  VQN
                 </a>
                 <Button
                   variant="ghost"
