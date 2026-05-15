@@ -4,11 +4,13 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Mail } from "lucide-react";
-import { hero, personalInfo } from "@/data/portfolio";
+import { hero, personalInfo, lt } from "@/data/portfolio";
 import { useReveal } from "@/hooks/use-reveal";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/social-icons";
+import { useTranslation } from "@/i18n";
 
 export function Hero() {
+  const { locale, t } = useTranslation();
   const { ref, isVisible } = useReveal();
 
   return (
@@ -33,17 +35,17 @@ export function Hero() {
           <div className="space-y-4">
             <div className="space-y-2">
               <p className="text-sm font-medium uppercase tracking-widest text-primary">
-                {hero.subtitle}
+                {t.hero.subtitle}
               </p>
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="gradient-text">{hero.name}</span>
               </h1>
               <p className="text-xl text-muted-foreground sm:text-2xl">
-                {hero.title}
+                {lt(hero.title, locale)}
               </p>
             </div>
             <p className="max-w-2xl text-muted-foreground">
-              {hero.brief}
+              {lt(hero.brief, locale)}
             </p>
 
             {/* Tech badges */}
@@ -65,7 +67,7 @@ export function Hero() {
             <div className="flex flex-wrap gap-3 pt-2">
               <Button size="lg" nativeButton={false} render={<a href="#contact" />}>
                 <Mail className="mr-2 size-4" />
-                Liên hệ
+                {t.contact.heading}
               </Button>
               <Button
                 variant="outline"

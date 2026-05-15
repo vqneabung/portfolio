@@ -7,6 +7,7 @@ import { Projects } from "@/components/sections/projects";
 import { Education } from "@/components/sections/education";
 import { Certifications } from "@/components/sections/certifications";
 import { Contact } from "@/components/sections/contact";
+import { Footer } from "@/components/layout/footer";
 
 export default function Home() {
   return (
@@ -22,11 +23,7 @@ export default function Home() {
         <Certifications />
         <Contact />
       </main>
-      <footer className="border-t border-border/50 py-8 text-center text-sm text-muted-foreground">
-        <div className="section-container">
-          <p>© {new Date().getFullYear()} Vũ Quang Nguyên. Được xây dựng với Next.js & shadcn/ui.</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

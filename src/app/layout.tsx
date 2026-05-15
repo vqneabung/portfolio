@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { I18nProvider } from "@/i18n";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -49,7 +50,9 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className="min-h-screen flex flex-col antialiased">
-        <TooltipProvider>{children}</TooltipProvider>
+        <I18nProvider>
+          <TooltipProvider>{children}</TooltipProvider>
+        </I18nProvider>
       </body>
     </html>
   );

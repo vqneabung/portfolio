@@ -19,11 +19,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
-import { projects } from "@/data/portfolio";
+import { projects, lt } from "@/data/portfolio";
 import { useReveal } from "@/hooks/use-reveal";
+import { useTranslation } from "@/i18n";
 import { FolderOpen, ExternalLink, Users } from "lucide-react";
 
 export function Projects() {
+  const { t } = useTranslation();
   const { ref, isVisible } = useReveal();
 
   return (
@@ -35,7 +37,7 @@ export function Projects() {
         <div className="mb-10 flex items-center gap-3">
           <FolderOpen className="size-6 text-primary" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Dự án
+            {t.projects.heading}
           </h2>
         </div>
 
@@ -56,6 +58,8 @@ function ProjectCard({
   project: (typeof projects)[number];
   index: number;
 }) {
+  const { locale, t } = useTranslation();
+
   return (
     <Card
       className="gradient-border bg-card transition-shadow hover:shadow-lg hover:shadow-primary/5"
@@ -70,20 +74,20 @@ function ProjectCard({
             variant="outline"
             className="shrink-0 border-secondary-accent/40 text-secondary-accent"
           >
-            {project.role}
+            {lt(project.role, locale)}
           </Badge>
         </div>
         <CardDescription>
           {project.period}{" "}
           {project.teamSize > 0 && (
             <span className="ml-2 inline-flex items-center gap-1">
-              · <Users className="size-3" /> {project.teamSize} thành viên
+              · <Users className="size-3" /> {project.teamSize} {t.projects.members}
             </span>
           )}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
-        <p className="text-sm text-muted-foreground">{project.description}</p>
+        <p className="text-sm text-muted-foreground">{lt(project.description, locale)}</p>
         <div className="flex flex-wrap gap-1.5">
           {project.technologies.slice(0, 5).map((tech) => (
             <Badge key={tech} variant="secondary" className="text-xs">
@@ -100,24 +104,24 @@ function ProjectCard({
       <CardFooter className="gap-2">
         <Dialog>
           <DialogTrigger render={<Button variant="default" size="sm" />}>
-            Chi tiết
+            {t.projects.detail}
           </DialogTrigger>
           <DialogContent className="max-h-[85vh] overflow-y-auto bg-card sm:max-w-lg">
             <DialogHeader>
               <DialogTitle>{project.name}</DialogTitle>
               <DialogDescription>
-                {project.role} · {project.period}
-                {project.teamSize > 0 && ` · ${project.teamSize} thành viên`}
+                {lt(project.role, locale)} · {project.period}
+                {project.teamSize > 0 && ` · ${project.teamSize} ${t.projects.members}`}
               </DialogDescription>
             </DialogHeader>
             <Separator className="my-2" />
             <div className="space-y-4">
               <p className="text-sm text-muted-foreground">
-                {project.description}
+                {lt(project.description, locale)}
               </p>
               <div>
                 <h4 className="mb-2 text-sm font-semibold">
-                  Trách nhiệm & Đóng góp
+                  {t.projects.responsibilities}
                 </h4>
                 <ul className="space-y-2">
                   {project.responsibilities.map((resp, j) => (
@@ -126,13 +130,13 @@ function ProjectCard({
                       className="flex items-start gap-2 text-sm text-muted-foreground"
                     >
                       <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
-                      {resp}
+                      {lt(resp, locale)}
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 className="mb-2 text-sm font-semibold">Công nghệ</h4>
+                <h4 className="mb-2 text-sm font-semibold">{t.projects.technologies}</h4>
                 <div className="flex flex-wrap gap-1.5">
                   {project.technologies.map((tech) => (
                     <Badge key={tech} variant="secondary">
@@ -143,11 +147,11 @@ function ProjectCard({
               </div>
               {project.links.length > 0 && (
                 <div>
-                  <h4 className="mb-2 text-sm font-semibold">Liên kết</h4>
+                  <h4 className="mb-2 text-sm font-semibold">{t.projects.links}</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.links.map((link) => (
                       <Button
-                        key={link.label}
+                        key={typeof link.label === "string" ? link.label : link.label.vi}
                         variant="outline"
                         size="sm"
                         nativeButton={false}
@@ -160,7 +164,7 @@ function ProjectCard({
                         }
                       >
                         <ExternalLink className="mr-1 size-3" />
-                        {link.label}
+                        {lt(link.label, locale)}
                       </Button>
                     ))}
                   </div>

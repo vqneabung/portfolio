@@ -4,8 +4,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { personalInfo } from "@/data/portfolio";
+import { personalInfo, lt } from "@/data/portfolio";
 import { useReveal } from "@/hooks/use-reveal";
+import { useTranslation } from "@/i18n";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/social-icons";
 import type { LucideIcon } from "lucide-react";
 
@@ -17,18 +18,19 @@ interface ContactItem {
 }
 
 export function Contact() {
+  const { locale, t } = useTranslation();
   const { ref, isVisible } = useReveal();
 
   const contactItems: ContactItem[] = [
     {
       icon: Mail,
-      label: "Email",
+      label: t.contact.email,
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
     },
     {
       icon: Phone,
-      label: "Điện thoại",
+      label: t.contact.phone,
       value: personalInfo.phone,
       href: `tel:${personalInfo.phone}`,
     },
@@ -46,8 +48,8 @@ export function Contact() {
     },
     {
       icon: MapPin,
-      label: "Địa chỉ",
-      value: personalInfo.location,
+      label: t.contact.address,
+      value: lt(personalInfo.location, locale),
       href: undefined,
     },
   ];
@@ -61,7 +63,7 @@ export function Contact() {
         <div className="mb-10 flex items-center gap-3">
           <Send className="size-6 text-primary" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Liên hệ
+            {t.contact.heading}
           </h2>
         </div>
 
@@ -69,8 +71,7 @@ export function Contact() {
           {/* Contact info cards */}
           <div className="space-y-4">
             <p className="text-muted-foreground">
-              Cảm ơn bạn đã quan tâm! Hãy liên hệ với tôi qua các kênh dưới
-              đây hoặc gửi email trực tiếp.
+              {t.contact.description}
             </p>
             <div className="space-y-3">
               {contactItems.map((item) => (
@@ -115,13 +116,13 @@ export function Contact() {
             <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-primary/10">
               <Mail className="size-8 text-primary" />
             </div>
-            <h3 className="mb-2 text-xl font-semibold">Hãy cùng làm việc!</h3>
+            <h3 className="mb-2 text-xl font-semibold">{t.contact.ctaTitle}</h3>
             <p className="mb-6 text-sm text-muted-foreground">
-              Tôi luôn sẵn sàng lắng nghe các cơ hội và dự án mới.
+              {t.contact.ctaDescription}
             </p>
             <Button size="lg" nativeButton={false} render={<a href={`mailto:${personalInfo.email}`} />}>
               <Mail className="mr-2 size-4" />
-              Gửi Email
+              {t.contact.sendEmail}
             </Button>
             <Separator className="my-6 w-3/4 opacity-30" />
             <div className="flex gap-3">

@@ -4,9 +4,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { certifications } from "@/data/portfolio";
 import { useReveal } from "@/hooks/use-reveal";
+import { useTranslation } from "@/i18n";
 import { Award } from "lucide-react";
 
 export function Certifications() {
+  const { t } = useTranslation();
   const { ref, isVisible } = useReveal();
 
   return (
@@ -18,7 +20,7 @@ export function Certifications() {
         <div className="mb-10 flex items-center gap-3">
           <Award className="size-6 text-primary" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Chứng chỉ
+            {t.certifications.heading}
           </h2>
         </div>
 

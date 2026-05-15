@@ -2,11 +2,13 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { education } from "@/data/portfolio";
+import { education, lt } from "@/data/portfolio";
 import { useReveal } from "@/hooks/use-reveal";
+import { useTranslation } from "@/i18n";
 import { GraduationCap, Award } from "lucide-react";
 
 export function Education() {
+  const { locale, t } = useTranslation();
   const { ref, isVisible } = useReveal();
 
   return (
@@ -18,7 +20,7 @@ export function Education() {
         <div className="mb-10 flex items-center gap-3">
           <GraduationCap className="size-6 text-primary" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Học vấn
+            {t.education.heading}
           </h2>
         </div>
 
@@ -26,7 +28,7 @@ export function Education() {
           <CardContent className="flex flex-col gap-4 p-6">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h3 className="text-lg font-semibold">{education.degree}</h3>
+                <h3 className="text-lg font-semibold">{lt(education.degree, locale)}</h3>
                 <p className="text-muted-foreground">{education.school}</p>
               </div>
               <Badge
@@ -38,7 +40,7 @@ export function Education() {
             </div>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">GPA:</span>
+                <span className="text-sm text-muted-foreground">{t.education.gpa}:</span>
                 <span className="font-semibold text-primary">
                   {education.gpa}
                 </span>
@@ -47,7 +49,7 @@ export function Education() {
                 <div className="flex items-center gap-2">
                   <Award className="size-4 text-secondary-accent" />
                   <span className="text-sm text-muted-foreground">
-                    {education.scholarship}
+                    {lt(education.scholarship, locale)}
                   </span>
                 </div>
               )}

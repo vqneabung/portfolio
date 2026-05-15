@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { skills, skillCategories, type Skill } from "@/data/portfolio";
+import { skills, lt } from "@/data/portfolio";
+import type { Skill } from "@/data/portfolio";
 import { useReveal } from "@/hooks/use-reveal";
+import { useTranslation } from "@/i18n";
 import { Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -20,10 +22,21 @@ const categoryColors: Record<CategoryKey, string> = {
 };
 
 export function Skills() {
+  const { locale, t } = useTranslation();
   const { ref, isVisible } = useReveal();
   const [activeCategory, setActiveCategory] = useState<CategoryKey | "all">(
     "all"
   );
+
+  const categoryFilters: { key: CategoryKey | "all"; label: string }[] = [
+    { key: "all", label: t.skills.all },
+    { key: "language", label: t.skills.language },
+    { key: "framework", label: t.skills.framework },
+    { key: "database", label: t.skills.database },
+    { key: "tool", label: t.skills.tool },
+    { key: "softskill", label: t.skills.softskill },
+    { key: "language_other", label: t.skills.language_other },
+  ];
 
   const filteredSkills =
     activeCategory === "all"
@@ -39,26 +52,18 @@ export function Skills() {
         <div className="mb-10 flex items-center gap-3">
           <Wrench className="size-6 text-primary" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Kỹ năng
+            {t.skills.heading}
           </h2>
         </div>
 
         {/* Category filter */}
         <div className="mb-8 flex flex-wrap gap-2">
-          <Button
-            variant={activeCategory === "all" ? "default" : "outline"}
-            size="sm"
-            onClick={() => setActiveCategory("all")}
-            className="rounded-full"
-          >
-            Tất cả
-          </Button>
-          {skillCategories.map((cat) => (
+          {categoryFilters.map((cat) => (
             <Button
               key={cat.key}
               variant={activeCategory === cat.key ? "default" : "outline"}
               size="sm"
-              onClick={() => setActiveCategory(cat.key)}
+              onClick={() => setActiveCategory(cat.key as CategoryKey | "all")}
               className="rounded-full"
             >
               {cat.label}
@@ -77,7 +82,7 @@ export function Skills() {
                 categoryColors[skill.category]
               )}
             >
-              {skill.name}
+              {skill.nameLocal ? lt(skill.nameLocal, locale) : skill.name}
             </Badge>
           ))}
         </div>

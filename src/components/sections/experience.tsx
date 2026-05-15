@@ -2,11 +2,13 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { experiences } from "@/data/portfolio";
+import { experiences, lt } from "@/data/portfolio";
 import { useReveal } from "@/hooks/use-reveal";
+import { useTranslation } from "@/i18n";
 import { Briefcase } from "lucide-react";
 
 export function Experience() {
+  const { locale, t } = useTranslation();
   const { ref, isVisible } = useReveal();
 
   return (
@@ -18,7 +20,7 @@ export function Experience() {
         <div className="mb-10 flex items-center gap-3">
           <Briefcase className="size-6 text-primary" />
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            Kinh nghiệm làm việc
+            {t.experience.heading}
           </h2>
         </div>
 
@@ -35,7 +37,7 @@ export function Experience() {
               <Card className="gradient-border bg-card">
                 <CardHeader>
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <CardTitle className="text-lg">{exp.title}</CardTitle>
+                    <CardTitle className="text-lg">{lt(exp.title, locale)}</CardTitle>
                     <Badge
                       variant="outline"
                       className="w-fit border-primary/40 text-primary"
@@ -53,7 +55,7 @@ export function Experience() {
                         className="flex items-start gap-2 text-sm text-muted-foreground"
                       >
                         <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
-                        {resp}
+                        {lt(resp, locale)}
                       </li>
                     ))}
                   </ul>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, Code2 } from "lucide-react";
+import { Menu, Code2, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -10,10 +10,27 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import { navLinks } from "@/data/portfolio";
+import { useTranslation } from "@/i18n";
+import type { Locale } from "@/i18n";
 
 export function Navbar() {
+  const { locale, t, setLocale } = useTranslation();
   const [open, setOpen] = useState(false);
+
+  const toggleLocale = () => {
+    const next: Locale = locale === "vi" ? "en" : "vi";
+    setLocale(next);
+  };
+
+  const navLinks = [
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.skills, href: "#skills" },
+    { label: t.nav.experience, href: "#experience" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.education, href: "#education" },
+    { label: t.nav.certifications, href: "#certifications" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
@@ -41,42 +58,64 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile menu */}
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger
-            render={<Button variant="ghost" size="icon" className="md:hidden" />}
+        <div className="flex items-center gap-2">
+          {/* Language toggle */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={toggleLocale}
+            className="gap-1.5 text-xs font-medium"
           >
-            <Menu className="size-5" />
-            <span className="sr-only">Mở menu</span>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-72">
-            <SheetTitle className="sr-only">Menu điều hướng</SheetTitle>
-            <div className="flex items-center justify-between px-1 pt-2">
-              <a
-                href="#hero"
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-2 text-lg font-bold"
-              >
-                <Code2 className="size-5 text-primary" />
-                <span className="gradient-text">VQN</span>
-              </a>
-            </div>
-            <Separator className="my-4" />
-            <ul className="flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-md px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </SheetContent>
-        </Sheet>
+            <Globe className="size-4" />
+            {locale === "vi" ? "EN" : "VI"}
+          </Button>
+
+          {/* Mobile menu */}
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger
+              render={<Button variant="ghost" size="icon" className="md:hidden" />}
+            >
+              <Menu className="size-5" />
+              <span className="sr-only">Menu</span>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-72">
+              <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+              <div className="flex items-center justify-between px-1 pt-2">
+                <a
+                  href="#hero"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-2 text-lg font-bold"
+                >
+                  <Code2 className="size-5 text-primary" />
+                  <span className="gradient-text">VQN</span>
+                </a>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={toggleLocale}
+                  className="gap-1.5 text-xs font-medium"
+                >
+                  <Globe className="size-4" />
+                  {locale === "vi" ? "EN" : "VI"}
+                </Button>
+              </div>
+              <Separator className="my-4" />
+              <ul className="flex flex-col gap-1">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="block rounded-md px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </SheetContent>
+          </Sheet>
+        </div>
       </nav>
     </header>
   );
