@@ -20,10 +20,8 @@ const vi = {
   about: {
     heading: "Giới thiệu",
     description: [
-      "Tôi là Cử nhân Kỹ thuật Phần mềm mới tốt nghiệp loại Khá (7.8/10) tại Đại học FPT — một chặng đường 4 năm nuôi dưỡng đam mê lập trình và xây dựng nền tảng vững chắc về C# và TypeScript.",
-      "Đồ án tốt nghiệp của tôi — PerfumeGPT — là một AI-powered web application với vai trò Full-Stack Developer, nơi tôi thiết kế và triển khai toàn bộ hệ thống backend lẫn frontend. Bên cạnh đó, kỳ thực tập tại Fsoft đã giúp tôi học hỏi quy trình làm việc chuyên nghiệp, kỹ năng giải quyết vấn đề thực tế và tinh thần làm việc nhóm.",
-      "Với kiến thức về ASP.NET Core, React, Next.js, PostgreSQL và Docker, cùng khát khao được phát triển trong môi trường chuyên nghiệp, tôi mong muốn tìm kiếm cơ hội để trở thành Backend Developer hoặc Full-Stack Developer, nơi tôi có thể đóng góp và tiếp tục phát triển bản thân.",
-      "Bên cạnh phát triển phần mềm, tôi vận hành một homelab server cá nhân chạy Fedora với Docker để quản lý container. Sử dụng Portainer và Komodo để giám sát, triển khai các service như ASP.NET Core, NestJS, PostgreSQL, Redis và nhiều service khác. Đây là môi trường tôi tự xây dựng để thực hành DevOps, CI/CD và quản lý hệ thống thực tế.",
+      "Cử nhân Kỹ thuật Phần mềm tại Đại học FPT (GPA 7.8/10), định hướng Backend/Full-Stack Developer. Có kinh nghiệm phát triển ứng dụng web với ASP.NET Core, React, Next.js, PostgreSQL và Docker thông qua dự án cá nhân và đồ án tốt nghiệp PerfumeGPT. Từng thực tập tại FPT Software và làm quen với quy trình phát triển phần mềm thực tế, teamwork và xử lý vấn đề.",
+      "Ngoài ra, tôi vận hành một homelab cá nhân trên Fedora sử dụng Docker, Portainer và Komodo để triển khai các service backend như ASP.NET Core, NestJS, PostgreSQL, Redis và thực hành DevOps, CI/CD, quản trị hệ thống.",
     ],
     highlights: {
       projects: "Dự án",

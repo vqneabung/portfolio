@@ -73,20 +73,12 @@ export const hero = {
 export const about = {
   description: [
     {
-      vi: "Tôi là Cử nhân Kỹ thuật Phần mềm mới tốt nghiệp loại Khá (7.8/10) tại Đại học FPT — một chặng đường 4 năm nuôi dưỡng đam mê lập trình và xây dựng nền tảng vững chắc về C# và TypeScript.",
-      en: "I am a recent Software Engineering graduate with Good honors (7.8/10) from FPT University — a 4-year journey that nurtured my programming passion and built a solid foundation in C# and TypeScript.",
+      vi: "Cử nhân Kỹ thuật Phần mềm tại Đại học FPT (GPA 7.8/10), định hướng Backend/Full-Stack Developer. Có kinh nghiệm phát triển ứng dụng web với ASP.NET Core, React, Next.js, PostgreSQL và Docker thông qua dự án cá nhân và đồ án tốt nghiệp PerfumeGPT. Từng thực tập tại FPT Software và làm quen với quy trình phát triển phần mềm thực tế, teamwork và xử lý vấn đề.",
+      en: "Software Engineering graduate from FPT University (GPA 7.8/10), oriented toward Backend/Full-Stack development. Experienced in building web applications with ASP.NET Core, React, Next.js, PostgreSQL, and Docker through personal projects and the PerfumeGPT thesis. Interned at FPT Software, gaining hands-on experience with real-world software development processes, teamwork, and problem-solving.",
     },
     {
-      vi: "Đồ án tốt nghiệp của tôi — PerfumeGPT — là một AI-powered web application với vai trò Full-Stack Developer, nơi tôi thiết kế và triển khai toàn bộ hệ thống backend lẫn frontend. Bên cạnh đó, kỳ thực tập tại Fsoft đã giúp tôi học hỏi quy trình làm việc chuyên nghiệp, kỹ năng giải quyết vấn đề thực tế và tinh thần làm việc nhóm.",
-      en: "My graduation thesis — PerfumeGPT — is an AI-powered web application where I served as Full-Stack Developer, designing and deploying both backend and frontend systems. Additionally, my internship at Fsoft taught me professional workflows, practical problem-solving skills, and teamwork.",
-    },
-    {
-      vi: "Với kiến thức về ASP.NET Core, React, Next.js, PostgreSQL và Docker, cùng khát khao được phát triển trong môi trường chuyên nghiệp, tôi mong muốn tìm kiếm cơ hội để trở thành Backend Developer hoặc Full-Stack Developer, nơi tôi có thể đóng góp và tiếp tục phát triển bản thân.",
-      en: "With expertise in ASP.NET Core, React, Next.js, PostgreSQL, and Docker, along with a strong desire to grow in a professional environment, I am seeking opportunities to become a Backend or Full-Stack Developer where I can contribute and continue developing myself.",
-    },
-    {
-      vi: "Bên cạnh phát triển phần mềm, tôi vận hành một homelab server cá nhân chạy Fedora với Docker để quản lý container. Sử dụng Portainer và Komodo để giám sát, triển khai các service như ASP.NET Core, NestJS, PostgreSQL, Redis và nhiều service khác. Đây là môi trường tôi tự xây dựng để thực hành DevOps, CI/CD và quản lý hệ thống thực tế.",
-      en: "Beyond software development, I run a personal homelab server on Fedora with Docker for container management. I use Portainer and Komodo to monitor and deploy services including ASP.NET Core, NestJS, PostgreSQL, Redis, and more. This is a self-built environment where I practice DevOps, CI/CD, and real-world system administration.",
+      vi: "Ngoài ra, tôi vận hành một homelab cá nhân trên Fedora sử dụng Docker, Portainer và Komodo để triển khai các service backend như ASP.NET Core, NestJS, PostgreSQL, Redis và thực hành DevOps, CI/CD, quản trị hệ thống.",
+      en: "Additionally, I run a personal homelab on Fedora using Docker, Portainer, and Komodo to deploy backend services such as ASP.NET Core, NestJS, PostgreSQL, Redis, and to practice DevOps, CI/CD, and system administration.",
     },
   ] as LocalText[],
   highlights: [

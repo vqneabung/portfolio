@@ -23,10 +23,8 @@ const en: Translation = {
   about: {
     heading: "About Me",
     description: [
-      "I am a recent Software Engineering graduate with Good honors (7.8/10) from FPT University — a 4-year journey that nurtured my programming passion and built a solid foundation in C# and TypeScript.",
-      "My graduation thesis — PerfumeGPT — is an AI-powered web application where I served as Full-Stack Developer, designing and deploying both backend and frontend systems. Additionally, my internship at Fsoft taught me professional workflows, practical problem-solving skills, and teamwork.",
-      "With expertise in ASP.NET Core, React, Next.js, PostgreSQL, and Docker, along with a strong desire to grow in a professional environment, I am seeking opportunities to become a Backend or Full-Stack Developer where I can contribute and continue developing myself.",
-      "Beyond software development, I run a personal homelab server on Fedora with Docker for container management. I use Portainer and Komodo to monitor and deploy services including ASP.NET Core, NestJS, PostgreSQL, Redis, and more. This is a self-built environment where I practice DevOps, CI/CD, and real-world system administration.",
+      "Software Engineering graduate from FPT University (GPA 7.8/10), oriented toward Backend/Full-Stack development. Experienced in building web applications with ASP.NET Core, React, Next.js, PostgreSQL, and Docker through personal projects and the PerfumeGPT thesis. Interned at FPT Software, gaining hands-on experience with real-world software development processes, teamwork, and problem-solving.",
+      "Additionally, I run a personal homelab on Fedora using Docker, Portainer, and Komodo to deploy backend services such as ASP.NET Core, NestJS, PostgreSQL, Redis, and to practice DevOps, CI/CD, and system administration.",
     ],
     highlights: {
       projects: "Projects",
