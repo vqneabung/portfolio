@@ -5,12 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { skills, lt } from "@/data/portfolio";
 import type { Skill } from "@/data/portfolio";
-
-type SkillCategory = Skill["category"];
 import { useReveal } from "@/hooks/use-reveal";
 import { useTranslation } from "@/i18n";
 import { Wrench } from "lucide-react";
 import Image from "next/image";
+
+type SkillCategory = Skill["category"];
 
 export function Skills() {
   const { locale, t } = useTranslation();
@@ -19,18 +19,28 @@ export function Skills() {
 
   const categoryFilters: { key: SkillCategory | "all"; label: string }[] = [
     { key: "all", label: t.skills.all },
-    { key: "language", label: t.skills.language },
-    { key: "framework", label: t.skills.framework },
+    { key: "backend", label: t.skills.backend },
+    { key: "ai", label: t.skills.ai },
+    { key: "infrastructure", label: t.skills.infrastructure },
+    { key: "frontend", label: t.skills.frontend },
     { key: "database", label: t.skills.database },
-    { key: "tool", label: t.skills.tool },
-    { key: "softskill", label: t.skills.softskill },
-    { key: "language_other", label: t.skills.language_other },
   ];
 
   const filteredSkills =
     activeCategory === "all"
       ? skills
       : skills.filter((s) => s.category === activeCategory);
+
+  const getCategoryLabel = (cat: SkillCategory): string => {
+    const map: Record<SkillCategory, string> = {
+      backend: t.skills.backend,
+      ai: t.skills.ai,
+      infrastructure: t.skills.infrastructure,
+      frontend: t.skills.frontend,
+      database: t.skills.database,
+    };
+    return map[cat];
+  };
 
   return (
     <section id="skills" className="section-padding">
@@ -60,7 +70,7 @@ export function Skills() {
           ))}
         </div>
 
-        {/* Skills grid - card with icon */}
+        {/* Skills grid */}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {filteredSkills.map((skill) => (
             <Card key={skill.name} className="transition-colors hover:bg-muted/50">
@@ -76,12 +86,17 @@ export function Skills() {
                   />
                 ) : (
                   <div className="flex size-6 shrink-0 items-center justify-center rounded bg-muted text-[10px] font-bold text-muted-foreground">
-    {skill.name.charAt(0)}
+                    {skill.name.charAt(0)}
                   </div>
                 )}
-                <span className="truncate text-sm font-medium">
-                  {skill.nameLocal ? lt(skill.nameLocal, locale) : skill.name}
-                </span>
+                <div className="min-w-0">
+                  <span className="truncate text-sm font-medium">
+                    {skill.nameLocal ? lt(skill.nameLocal, locale) : skill.name}
+                  </span>
+                  <p className="text-[10px] text-muted-foreground">
+                    {getCategoryLabel(skill.category)}
+                  </p>
+                </div>
               </CardContent>
             </Card>
           ))}

@@ -2,9 +2,11 @@
 const vi = {
   nav: {
     about: "Giới thiệu",
-    skills: "Kỹ năng",
-    experience: "Kinh nghiệm",
     projects: "Dự án",
+    homelab: "Homelab",
+    skills: "Kỹ năng",
+    decisions: "Quyết định Kỹ thuật",
+    experience: "Kinh nghiệm",
     education: "Học vấn",
     certifications: "Chứng chỉ",
     contact: "Liên hệ",
@@ -12,21 +14,21 @@ const vi = {
 
   // ---------- Hero ----------
   hero: {
-    subtitle: "Software Developer",
-    title: "Full-Stack Developer",
+    subtitle: "AI & Backend Developer",
+    title: "Backend-Oriented Fullstack Developer",
   },
 
   // ---------- About ----------
   about: {
     heading: "Giới thiệu",
     description: [
-      "Cử nhân Kỹ thuật Phần mềm tại Đại học FPT (GPA 7.8/10), định hướng Backend/Full-Stack Developer. Có kinh nghiệm phát triển ứng dụng web với ASP.NET Core, React, Next.js, PostgreSQL và Docker thông qua dự án cá nhân và đồ án tốt nghiệp PerfumeGPT. Từng thực tập tại FPT Software và làm quen với quy trình phát triển phần mềm thực tế, teamwork và xử lý vấn đề.",
-      "Ngoài ra, tôi vận hành một homelab cá nhân trên Fedora sử dụng Docker, Portainer và Komodo để triển khai các service backend như ASP.NET Core, NestJS, PostgreSQL, Redis và thực hành DevOps, CI/CD, quản trị hệ thống.",
+      "Kỹ sư Phần mềm từ Đại học FPT (GPA 7.8/10), định hướng Backend & AI Application Development. Kinh nghiệm xây dựng hệ thống web với ASP.NET Core, NestJS, React, PostgreSQL và Docker. Đặc biệt quan tâm đến kiến trúc backend, retrieval systems (RAG, vector search) và deployment pipeline.",
+      "Vận hành homelab cá nhân trên Fedora Linux: container orchestration với Docker Compose, monitoring qua Portainer/Komodo, và CI/CD pipeline tự động deployment — coi đây là phòng lab thử nghiệm kiến trúc hệ thống thật.",
     ],
     highlights: {
-      projects: "Dự án",
-      experience: "Kinh nghiệm",
+      projects: "Dự án thực tế",
       technologies: "Công nghệ",
+      homelab: "Homelab Services",
     },
   },
 
@@ -34,12 +36,11 @@ const vi = {
   skills: {
     heading: "Kỹ năng",
     all: "Tất cả",
-    language: "Ngôn ngữ lập trình",
-    framework: "Framework",
+    backend: "Backend",
+    ai: "AI & Retrieval",
+    infrastructure: "Infrastructure",
+    frontend: "Frontend",
     database: "Database",
-    tool: "Công cụ & Khác",
-    softskill: "Kỹ năng mềm",
-    language_other: "Ngôn ngữ",
   },
 
   // ---------- Experience ----------
@@ -51,13 +52,32 @@ const vi = {
   projects: {
     heading: "Dự án",
     detail: "Chi tiết",
+    problem: "Vấn đề",
+    whatIBuilt: "Giải pháp",
+    highlights: "Điểm kỹ thuật",
+    challenges: "Thử thách",
+    learned: "Bài học",
+    architecture: "Kiến trúc hệ thống",
     responsibilities: "Trách nhiệm & Đóng góp",
     technologies: "Công nghệ",
     links: "Liên kết",
     members: "thành viên",
-    frontend: "Front-end",
-    backend: "Back-end",
-    mobile: "Mobile",
+  },
+
+  // ---------- Homelab ----------
+  homelab: {
+    heading: "Homelab & Infrastructure",
+    description: "Vận hành homelab server trên máy cũ chạy Fedora Linux, sử dụng Docker Compose để orchestrate toàn bộ services. Quản lý qua Portainer và Komodo, triển khai CI/CD pipeline tự động và monitoring hệ thống 24/7.",
+    specs: "Thông số",
+    services: "Services",
+    challenges: "Thử thách",
+    learned: "Bài học",
+  },
+
+  // ---------- Technical Decisions ----------
+  decisions: {
+    heading: "Quyết định Kỹ thuật",
+    subtitle: "Những tradeoff và quyết định kỹ thuật đã đưa ra khi xây dựng hệ thống.",
   },
 
   // ---------- Education ----------

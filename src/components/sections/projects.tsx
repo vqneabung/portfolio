@@ -22,7 +22,7 @@ import { Separator } from "@/components/ui/separator";
 import { projects, lt } from "@/data/portfolio";
 import { useReveal } from "@/hooks/use-reveal";
 import { useTranslation } from "@/i18n";
-import { FolderOpen, ExternalLink, Users } from "lucide-react";
+import { FolderOpen, ExternalLink, Users, AlertCircle, Lightbulb, Zap, ArrowRight, BookOpen } from "lucide-react";
 
 export function Projects() {
   const { t } = useTranslation();
@@ -84,6 +84,7 @@ function ProjectCard({
       </CardHeader>
       <CardContent className="space-y-3">
         <p className="text-sm text-muted-foreground">{lt(project.description, locale)}</p>
+
         <div className="flex flex-wrap gap-1.5">
           {project.technologies.slice(0, 5).map((tech) => (
             <Badge key={tech} variant="secondary" className="text-xs">
@@ -112,9 +113,100 @@ function ProjectCard({
             </DialogHeader>
             <Separator className="my-2" />
             <div className="space-y-5">
-              <p className="text-sm text-muted-foreground">
-                {lt(project.description, locale)}
-              </p>
+              {/* Problem */}
+              <div>
+                <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
+                  <AlertCircle className="size-4 text-primary" />
+                  {t.projects.problem}
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  {lt(project.problem, locale)}
+                </p>
+              </div>
+
+              {/* What I Built */}
+              <div>
+                <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
+                  <Lightbulb className="size-4 text-primary" />
+                  {t.projects.whatIBuilt}
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  {lt(project.whatIBuilt, locale)}
+                </p>
+              </div>
+
+              {/* Architecture Flow */}
+              {project.architectureFlow.length > 0 && (
+                <div>
+                  <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
+                    <ArrowRight className="size-4 text-primary" />
+                    {t.projects.architecture}
+                  </h4>
+                  <div className="flex flex-wrap items-center gap-1.5 rounded-lg border border-border bg-muted/30 p-3">
+                    {project.architectureFlow.map((step, i) => (
+                      <span key={i} className="flex items-center gap-1.5">
+                        {step.startsWith("→") ? (
+                          <>
+                            <ArrowRight className="size-3 text-muted-foreground" />
+                            <span className="text-sm text-muted-foreground">
+                              {step.replace("→ ", "")}
+                            </span>
+                          </>
+                        ) : (
+                          <Badge variant="secondary" className="text-xs font-medium">
+                            {step}
+                          </Badge>
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Technical Highlights */}
+              <div>
+                <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
+                  <Zap className="size-4 text-primary" />
+                  {t.projects.highlights}
+                </h4>
+                <ul className="space-y-2">
+                  {project.highlights.map((h, j) => (
+                    <li
+                      key={j}
+                      className="flex items-start gap-2 text-sm text-muted-foreground"
+                    >
+                      <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+                      {lt(h, locale)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Challenges */}
+              <div>
+                <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
+                  <AlertCircle className="size-4 text-orange-500" />
+                  {t.projects.challenges}
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  {lt(project.challenges, locale)}
+                </p>
+              </div>
+
+              {/* What I Learned */}
+              <div>
+                <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
+                  <BookOpen className="size-4 text-green-500" />
+                  {t.projects.learned}
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  {lt(project.learned, locale)}
+                </p>
+              </div>
+
+              <Separator className="my-2" />
+
+              {/* Responsibilities */}
               <div>
                 <h4 className="mb-2 text-sm font-semibold">
                   {t.projects.responsibilities}
@@ -131,6 +223,8 @@ function ProjectCard({
                   ))}
                 </ul>
               </div>
+
+              {/* Technologies */}
               <div>
                 <h4 className="mb-2 text-sm font-semibold">{t.projects.technologies}</h4>
                 <div className="flex flex-wrap gap-1.5">
@@ -141,6 +235,8 @@ function ProjectCard({
                   ))}
                 </div>
               </div>
+
+              {/* Links */}
               {project.links.length > 0 && (
                 <div>
                   <h4 className="mb-2 text-sm font-semibold">{t.projects.links}</h4>

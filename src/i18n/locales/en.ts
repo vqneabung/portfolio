@@ -5,9 +5,11 @@ const en: Translation = {
   // ---------- Nav ----------
   nav: {
     about: "About",
-    skills: "Skills",
-    experience: "Experience",
     projects: "Projects",
+    homelab: "Homelab",
+    skills: "Skills",
+    decisions: "Tech Decisions",
+    experience: "Experience",
     education: "Education",
     certifications: "Certifications",
     contact: "Contact",
@@ -15,21 +17,21 @@ const en: Translation = {
 
   // ---------- Hero ----------
   hero: {
-    subtitle: "Software Developer",
-    title: "Full-Stack Developer",
+    subtitle: "AI & Backend Developer",
+    title: "Backend-Oriented Fullstack Developer",
   },
 
   // ---------- About ----------
   about: {
     heading: "About Me",
     description: [
-      "Software Engineering graduate from FPT University (GPA 7.8/10), oriented toward Backend/Full-Stack development. Experienced in building web applications with ASP.NET Core, React, Next.js, PostgreSQL, and Docker through personal projects and the PerfumeGPT thesis. Interned at FPT Software, gaining hands-on experience with real-world software development processes, teamwork, and problem-solving.",
-      "Additionally, I run a personal homelab on Fedora using Docker, Portainer, and Komodo to deploy backend services such as ASP.NET Core, NestJS, PostgreSQL, Redis, and to practice DevOps, CI/CD, and system administration.",
+      "Software Engineering graduate from FPT University (GPA 7.8/10), oriented toward Backend & AI Application Development. Experienced in building web systems with ASP.NET Core, NestJS, React, PostgreSQL, and Docker. Particularly interested in backend architecture, retrieval systems (RAG, vector search), and deployment pipelines.",
+      "Running a personal homelab on Fedora Linux: container orchestration with Docker Compose, monitoring via Portainer/Komodo, and automated CI/CD deployment — treating it as a lab for real system architecture experiments.",
     ],
     highlights: {
-      projects: "Projects",
-      experience: "Experience",
+      projects: "Real Projects",
       technologies: "Technologies",
+      homelab: "Homelab Services",
     },
   },
 
@@ -37,12 +39,11 @@ const en: Translation = {
   skills: {
     heading: "Skills",
     all: "All",
-    language: "Programming Languages",
-    framework: "Frameworks",
-    database: "Databases",
-    tool: "Tools & Other",
-    softskill: "Soft Skills",
-    language_other: "Languages",
+    backend: "Backend",
+    ai: "AI & Retrieval",
+    infrastructure: "Infrastructure",
+    frontend: "Frontend",
+    database: "Database",
   },
 
   // ---------- Experience ----------
@@ -54,13 +55,32 @@ const en: Translation = {
   projects: {
     heading: "Projects",
     detail: "Details",
+    problem: "Problem",
+    whatIBuilt: "What I Built",
+    highlights: "Technical Highlights",
+    challenges: "Challenges",
+    learned: "What I Learned",
+    architecture: "Architecture",
     responsibilities: "Responsibilities & Contributions",
     technologies: "Technologies",
     links: "Links",
     members: "members",
-    frontend: "Front-end",
-    backend: "Back-end",
-    mobile: "Mobile",
+  },
+
+  // ---------- Homelab ----------
+  homelab: {
+    heading: "Homelab & Infrastructure",
+    description: "Running a homelab server on repurposed hardware with Fedora Linux, using Docker Compose to orchestrate all services. Managing through Portainer and Komodo, with automated CI/CD pipeline and 24/7 system monitoring.",
+    specs: "Specs",
+    services: "Services",
+    challenges: "Challenges",
+    learned: "What I Learned",
+  },
+
+  // ---------- Technical Decisions ----------
+  decisions: {
+    heading: "Technical Decisions",
+    subtitle: "Tradeoffs and technical decisions made when building systems.",
   },
 
   // ---------- Education ----------

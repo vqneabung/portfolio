@@ -24,9 +24,11 @@ export function Navbar() {
 
   const navLinks = [
     { label: t.nav.about, href: "#about" },
-    { label: t.nav.skills, href: "#skills" },
-    { label: t.nav.experience, href: "#experience" },
     { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.homelab, href: "#homelab" },
+    { label: t.nav.skills, href: "#skills" },
+    { label: t.nav.decisions, href: "#decisions" },
+    { label: t.nav.experience, href: "#experience" },
     { label: t.nav.education, href: "#education" },
     { label: t.nav.certifications, href: "#certifications" },
     { label: t.nav.contact, href: "#contact" },

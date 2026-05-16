@@ -1,6 +1,6 @@
 // ============================================================
 // Portfolio Data Layer
-// Dữ liệu tĩnh lưu trữ toàn bộ thông tin CV
+// Dữ liệu tĩnh lưu trữ toàn bộ thông tin Portfolio
 // Hỗ trợ đa ngôn ngữ (vi/en) qua kiểu LocalText
 // ============================================================
 
@@ -16,10 +16,8 @@ function lt(text: LocalText, locale: string): string {
 
 export interface Skill {
   name: string;
-  category: "language" | "framework" | "database" | "tool" | "softskill" | "language_other";
-  /** Translated name per locale (optional – falls back to name) */
+  category: "backend" | "ai" | "infrastructure" | "frontend" | "database";
   nameLocal?: { vi: string; en: string };
-  /** Devicon slug – maps to https://devicon.dev/ icon set */
   icon?: string;
 }
 
@@ -36,10 +34,27 @@ export interface Project {
   role: LocalText;
   period: string;
   description: LocalText;
+  problem: LocalText;
+  whatIBuilt: LocalText;
+  highlights: LocalText[];
+  challenges: LocalText;
+  learned: LocalText;
+  architectureFlow: string[];
   technologies: string[];
   links: { label: LocalText; url: string }[];
   teamSize: number;
   responsibilities: LocalText[];
+}
+
+export interface HomelabService {
+  name: string;
+  description: LocalText;
+  icon?: string;
+}
+
+export interface TechnicalDecision {
+  question: LocalText;
+  answer: LocalText;
 }
 
 export interface Education {
@@ -60,12 +75,16 @@ export interface Certification {
 
 export const hero = {
   name: "Vũ Quang Nguyên",
-  title: { vi: "Full-Stack Developer", en: "Full-Stack Developer" },
-  subtitle: "Software Developer",
-  brief: {
-    vi: "Đam mê lập trình với nền tảng C# và TypeScript vững chắc. Tốt nghiệp loại Khá (7.8/10) ngành Kỹ thuật Phần mềm tại Đại học FPT. Đã hoàn thành đồ án PerfumeGPT với vai trò Full-Stack Developer, xây dựng hệ thống AI-powered web application. Từng thực tập tại Fsoft, học hỏi quy trình làm việc chuyên nghiệp và kỹ năng giải quyết vấn đề thực tế. Mong muốn tìm kiếm cơ hội phát triển sự nghiệp tại môi trường chuyên nghiệp để trở thành Backend Developer hoặc Full-Stack Developer.",
-    en: "Passionate programmer with a solid foundation in C# and TypeScript. Graduated with Good honors (7.8/10) in Software Engineering from FPT University. Completed the PerfumeGPT thesis as a Full-Stack Developer, building an AI-powered web application system. Interned at Fsoft, gaining professional workflow experience and practical problem-solving skills. Seeking professional opportunities to grow as a Backend or Full-Stack Developer.",
+  title: {
+    vi: "Backend-Oriented Fullstack Developer",
+    en: "Backend-Oriented Fullstack Developer",
   },
+  subtitle: "AI & Backend Developer",
+  brief: {
+    vi: "Đam mê xây dựng hệ thống backend và ứng dụng AI. Tốt nghiệp Kỹ thuật Phần mềm (7.8/10) tại FPT University. Xây dựng hệ thống tư vấn nước hoa AI-powered (PerfumeGPT) và vận hành homelab với Docker, PostgreSQL, Redis trên Fedora. Từng thực tập tại FPT Software. Tập trung vào kiến trúc backend, retrieval systems và deployment thực tế.",
+    en: "Passionate about building backend systems and AI applications. Software Engineering graduate (7.8/10) from FPT University. Built an AI-powered perfume recommendation system (PerfumeGPT) and operate a homelab with Docker, PostgreSQL, Redis on Fedora. Interned at FPT Software. Focused on backend architecture, retrieval systems, and real-world deployment.",
+  },
+  techBadges: ["ASP.NET Core", "NestJS", "PostgreSQL", "Docker", "AI/RAG"],
 };
 
 // --------------- About ---------------
@@ -73,18 +92,18 @@ export const hero = {
 export const about = {
   description: [
     {
-      vi: "Cử nhân Kỹ thuật Phần mềm tại Đại học FPT (GPA 7.8/10), định hướng Backend/Full-Stack Developer. Có kinh nghiệm phát triển ứng dụng web với ASP.NET Core, React, Next.js, PostgreSQL và Docker thông qua dự án cá nhân và đồ án tốt nghiệp PerfumeGPT. Từng thực tập tại FPT Software và làm quen với quy trình phát triển phần mềm thực tế, teamwork và xử lý vấn đề.",
-      en: "Software Engineering graduate from FPT University (GPA 7.8/10), oriented toward Backend/Full-Stack development. Experienced in building web applications with ASP.NET Core, React, Next.js, PostgreSQL, and Docker through personal projects and the PerfumeGPT thesis. Interned at FPT Software, gaining hands-on experience with real-world software development processes, teamwork, and problem-solving.",
+      vi: "Kỹ sư Phần mềm từ Đại học FPT (GPA 7.8/10), định hướng Backend & AI Application Development. Kinh nghiệm xây dựng hệ thống web với ASP.NET Core, NestJS, React, PostgreSQL và Docker. Đặc biệt quan tâm đến kiến trúc backend, retrieval systems (RAG, vector search) và deployment pipeline.",
+      en: "Software Engineering graduate from FPT University (GPA 7.8/10), oriented toward Backend & AI Application Development. Experienced in building web systems with ASP.NET Core, NestJS, React, PostgreSQL, and Docker. Particularly interested in backend architecture, retrieval systems (RAG, vector search), and deployment pipelines.",
     },
     {
-      vi: "Ngoài ra, tôi vận hành một homelab cá nhân trên Fedora sử dụng Docker, Portainer và Komodo để triển khai các service backend như ASP.NET Core, NestJS, PostgreSQL, Redis và thực hành DevOps, CI/CD, quản trị hệ thống.",
-      en: "Additionally, I run a personal homelab on Fedora using Docker, Portainer, and Komodo to deploy backend services such as ASP.NET Core, NestJS, PostgreSQL, Redis, and to practice DevOps, CI/CD, and system administration.",
+      vi: "Vận hành homelab cá nhân trên Fedora Linux: container orchestration với Docker Compose, monitoring qua Portainer/Komodo, và CI/CD pipeline tự động deployment — coi đây là phòng lab thử nghiệm kiến trúc hệ thống thật.",
+      en: "Running a personal homelab on Fedora Linux: container orchestration with Docker Compose, monitoring via Portainer/Komodo, and automated CI/CD deployment — treating it as a lab for real system architecture experiments.",
     },
   ] as LocalText[],
   highlights: [
-    { label: { vi: "Dự án", en: "Projects" }, value: "4+" },
-    // { label: { vi: "Kinh nghiệm", en: "Experience" }, value: "1 năm+" },
+    { label: { vi: "Dự án thực tế", en: "Real Projects" }, value: "4+" },
     { label: { vi: "Công nghệ", en: "Technologies" }, value: "15+" },
+    { label: { vi: "Homelab Services", en: "Homelab Services" }, value: "6+" },
   ],
 };
 
@@ -98,75 +117,36 @@ export const personalInfo = {
   location: { vi: "Ea Súp, Đăk Lắk", en: "Ea Sup, Dak Lak" },
 };
 
-// --------------- Skills ---------------
+// --------------- Skills (Engineering-grouped) ---------------
 
 export const skills: Skill[] = [
-  // Ngôn ngữ lập trình
-  { name: "Java", category: "language", icon: "java" },
-  { name: "JavaScript", category: "language", icon: "javascript" },
-  { name: "TypeScript", category: "language", icon: "typescript" },
-  { name: "HTML5/CSS3", category: "language", icon: "html5" },
-  { name: "C#", category: "language", icon: "csharp" },
-  { name: "Kotlin", category: "language", icon: "kotlin" },
-  // Framework
-  { name: "React", category: "framework", icon: "react" },
-  { name: "Next.js", category: "framework", icon: "nextjs" },
-  { name: "NestJS", category: "framework", icon: "nestjs" },
-  { name: "ASP.NET Core", category: "framework", icon: "dotnetcore" },
-  { name: "Flutter", category: "framework", icon: "flutter" },
+  // Backend
+  { name: "C#", category: "backend", icon: "csharp" },
+  { name: "ASP.NET Core", category: "backend", icon: "dotnetcore" },
+  { name: "NestJS", category: "backend", icon: "nestjs" },
+  { name: "Java", category: "backend", icon: "java" },
+  { name: "RESTful API", category: "backend" },
+  // AI & Retrieval
+  { name: "RAG Pipeline", category: "ai" },
+  { name: "Vector Search / pgvector", category: "ai" },
+  { name: "Prompt Engineering", category: "ai" },
+  { name: "AI Chatbot Integration", category: "ai" },
+  // Infrastructure
+  { name: "Docker", category: "infrastructure", icon: "docker" },
+  { name: "Linux (Fedora)", category: "infrastructure" },
+  { name: "CI/CD", category: "infrastructure" },
+  { name: "Portainer / Komodo", category: "infrastructure" },
+  { name: "Git / GitHub", category: "infrastructure", icon: "git" },
+  // Frontend
+  { name: "React", category: "frontend", icon: "react" },
+  { name: "Next.js", category: "frontend", icon: "nextjs" },
+  { name: "TypeScript", category: "frontend", icon: "typescript" },
+  { name: "Flutter", category: "frontend", icon: "flutter" },
   // Database
-  { name: "SQL Server", category: "database", icon: "microsoftsqlserver" },
   { name: "PostgreSQL", category: "database", icon: "postgresql" },
+  { name: "SQL Server", category: "database", icon: "microsoftsqlserver" },
   { name: "Redis", category: "database", icon: "redis" },
   { name: "Supabase", category: "database", icon: "supabase" },
-  // Tool
-  { name: "Git/GitHub", category: "tool", icon: "git" },
-  { name: "Docker", category: "tool", icon: "docker" },
-  { name: "Postman", category: "tool", icon: "postman" },
-  { name: "VS Code", category: "tool", icon: "vscode" },
-  { name: "Visual Studio", category: "tool", icon: "visualstudio" },
-  { name: "Portainer/Komodo", category: "tool" },
-  { name: "Jira", category: "tool" },
-  // { name: "Figma", category: "tool", icon: "figma" },
-  { name: "OpenCode", category: "tool" },
-  { name: "RESTful API", category: "tool" },
-  // Soft skills
-  {
-    name: "Kỹ năng giao tiếp hiệu quả",
-    nameLocal: { vi: "Kỹ năng giao tiếp hiệu quả", en: "Effective communication" },
-    category: "softskill",
-  },
-  {
-    name: "Tinh thần làm việc nhóm tốt",
-    nameLocal: { vi: "Tinh thần làm việc nhóm tốt", en: "Teamwork" },
-    category: "softskill",
-  },
-  {
-    name: "Khả năng giải quyết vấn đề",
-    nameLocal: { vi: "Khả năng giải quyết vấn đề", en: "Problem-solving" },
-    category: "softskill",
-  },
-  {
-    name: "Quản lý thời gian hiệu quả",
-    nameLocal: { vi: "Quản lý thời gian hiệu quả", en: "Time management" },
-    category: "softskill",
-  },
-  {
-    name: "Tinh thần học hỏi và chủ động",
-    nameLocal: { vi: "Tinh thần học hỏi và chủ động", en: "Proactive learning" },
-    category: "softskill",
-  },
-  // Ngôn ngữ
-  {
-    name: "Tiếng Việt (Bản ngữ)",
-    nameLocal: { vi: "Tiếng Việt (Bản ngữ)", en: "Vietnamese (Native)" },
-    category: "language_other",
-  },
-  {
-    name: "Tiếng Anh (Đọc tài liệu khá)",
-    nameLocal: { vi: "Tiếng Anh (Đọc tài liệu khá)", en: "English (Good reading)" },
-    category: "language_other",
-  },
 ];
 
 // --------------- Experience ---------------
@@ -195,28 +175,114 @@ export const experiences: Experience[] = [
       },
     ],
   },
+];
+
+// --------------- Homelab ---------------
+
+export const homelab = {
+  heading: { vi: "Homelab & Infrastructure", en: "Homelab & Infrastructure" },
+  description: {
+    vi: "Vận hành homelab server trên máy cũ chạy Fedora Linux, sử dụng Docker Compose để orchestrate toàn bộ services. Quản lý qua Portainer và Komodo, triển khai CI/CD pipeline tự động và monitoring hệ thống 24/7.",
+    en: "Running a homelab server on repurposed hardware with Fedora Linux, using Docker Compose to orchestrate all services. Managing through Portainer and Komodo, with automated CI/CD pipeline and 24/7 system monitoring.",
+  },
+  specs: [
+    { label: { vi: "OS", en: "OS" }, value: "Fedora Linux" },
+    { label: { vi: "Containerization", en: "Containerization" }, value: "Docker Compose" },
+    { label: { vi: "Management", en: "Management" }, value: "Portainer + Komodo" },
+    { label: { vi: "Deployment", en: "Deployment" }, value: "CI/CD + Webhook" },
+  ],
+  services: [
+    {
+      name: "ASP.NET Core",
+      description: { vi: "Backend API chính cho các dự án", en: "Main backend API for projects" },
+      icon: "dotnetcore",
+    },
+    {
+      name: "NestJS",
+      description: { vi: "AI Backend service cho chatbot", en: "AI Backend service for chatbot" },
+      icon: "nestjs",
+    },
+    {
+      name: "PostgreSQL",
+      description: { vi: "Cơ sở dữ liệu chính (có pgvector)", en: "Primary database (with pgvector)" },
+      icon: "postgresql",
+    },
+    {
+      name: "Redis",
+      description: { vi: "Caching và Pub/Sub messaging", en: "Caching and Pub/Sub messaging" },
+      icon: "redis",
+    },
+    {
+      name: "Portainer",
+      description: { vi: "Quản lý và giám sát container", en: "Container management and monitoring" },
+    },
+    {
+      name: "Komodo",
+      description: { vi: "CI/CD deployment quản lý", en: "CI/CD deployment management" },
+    },
+  ] as HomelabService[],
+  challenges: [
+    {
+      vi: "Quản lý resource constraint trên hardware cũ — tối ưu memory và CPU cho multi-container setup.",
+      en: "Managing resource constraints on old hardware — optimizing memory and CPU for multi-container setup.",
+    },
+    {
+      vi: "Container networking giữa các service backend và database chạy trên cùng host.",
+      en: "Container networking between backend services and databases running on the same host.",
+    },
+    {
+      vi: "Volume persistence cho PostgreSQL và Redis để đảm bảo data không mất khi restart.",
+      en: "Volume persistence for PostgreSQL and Redis to ensure data survives container restarts.",
+    },
+  ] as LocalText[],
+  learned: {
+    vi: "Homelab dạy mình cách hệ thống production thật hoạt động — từ resource constraint đến networking đến monitoring. Không sách nào thay được kinh nghiệm vận hành server thật.",
+    en: "The homelab taught me how real production systems work — from resource constraints to networking to monitoring. No book can replace the experience of running a real server.",
+  },
+};
+
+// --------------- Technical Decisions ---------------
+
+export const technicalDecisions: TechnicalDecision[] = [
   {
-    title: { vi: "Homelab Server & DevOps", en: "Homelab Server & DevOps" },
-    company: "Personal Project",
-    period: "2025 – Nay",
-    responsibilities: [
-      {
-        vi: "Xây dựng và vận hành homelab server trên máy tính cũ chạy Fedora, sử dụng Docker để container hóa toàn bộ dịch vụ.",
-        en: "Built and operated a homelab server on repurposed hardware running Fedora, using Docker to containerize all services.",
-      },
-      {
-        vi: "Sử dụng Portainer và Komodo để quản lý, giám sát và triển khai container cho các service như ASP.NET Core, NestJS, PostgreSQL, Redis.",
-        en: "Used Portainer and Komodo to manage, monitor, and deploy containers for services such as ASP.NET Core, NestJS, PostgreSQL, Redis.",
-      },
-      {
-        vi: "Thực hành CI/CD workflow, quản lý container networking, volume persistence và systemd service.",
-        en: "Practiced CI/CD workflows, container networking, volume persistence, and systemd service management.",
-      },
-      {
-        vi: "Tự động hóa triển khai và cập nhật dịch vụ thông qua Docker Compose và shell scripting.",
-        en: "Automated service deployment and updates using Docker Compose and shell scripting.",
-      },
-    ],
+    question: {
+      vi: "Tại sao dùng PostgreSQL + pgvector thay vì Elasticsearch?",
+      en: "Why PostgreSQL + pgvector instead of Elasticsearch?",
+    },
+    answer: {
+      vi: "PostgreSQL đã là DB chính cho application — thêm pgvector extension cho phép vector search trong cùng database, giảm operational complexity. Đổi sang Elasticsearch sẽ cần quản lý thêm một cluster riêng cho dữ liệu mà tệp nhỏ, chưa đáng.",
+      en: "PostgreSQL was already the primary DB — adding the pgvector extension enables vector search in the same database, reducing operational complexity. Switching to Elasticsearch would mean managing a separate cluster for data that's small and doesn't justify it yet.",
+    },
+  },
+  {
+    question: {
+      vi: "Tại sao chọn Redis Pub/Sub cho AI pipeline?",
+      en: "Why Redis Pub/Sub for the AI pipeline?",
+    },
+    answer: {
+      vi: "AI pipeline cần message passing giữa backend chính và AI service. Redis Pub/Sub lightweight, đã có sẵn trong stack cho caching, và đủ cho throughput hiện tại. gRPC thì robust hơn nhưng over-engineering cho use case này.",
+      en: "The AI pipeline needs message passing between the main backend and the AI service. Redis Pub/Sub is lightweight, already in the stack for caching, and sufficient for current throughput. gRPC would be more robust but over-engineering for this use case.",
+    },
+  },
+  {
+    question: {
+      vi: "Tại sao dùng hybrid search (BM25 + vector)?",
+      en: "Why hybrid search (BM25 + vector)?",
+    },
+    answer: {
+      vi: "Pure vector retrieval cho kết quả không ổn định relevance — một số query quá vague, một số quá specific. Hybrid search kết hợp keyword matching (BM25) với semantic similarity (pgvector) cho kết quả cân bằng hơn.",
+      en: "Pure vector retrieval produced inconsistent relevance — some queries too vague, some too specific. Hybrid search combines keyword matching (BM25) with semantic similarity (pgvector) for more balanced results.",
+    },
+  },
+  {
+    question: {
+      vi: "Tại sao Docker Compose trên homelab thay vì Kubernetes?",
+      en: "Why Docker Compose on the homelab instead of Kubernetes?",
+    },
+    answer: {
+      vi: "Homelab chạy trên 1 máy cũ — Kubernetes là overkill cho single-node. Docker Compose đủ declare multi-container, dễ debug hơn, và nhẹ resource. Kubernetes phù hợp hơn khi scale multi-node, chưa cần ở giai đoạn này.",
+      en: "The homelab runs on a single old machine — Kubernetes is overkill for single-node. Docker Compose is enough to declare multi-container setups, easier to debug, and lighter on resources. Kubernetes makes more sense when scaling to multi-node, which isn't needed at this stage.",
+    },
   },
 ];
 
@@ -232,6 +298,35 @@ export const projects: Project[] = [
       vi: "Hệ thống tư vấn nước hoa tích hợp AI chatbot, hỗ trợ quản lý sản phẩm và đơn hàng. Triển khai các service trên homelab server Fedora với Docker.",
       en: "AI-integrated perfume recommendation system with chatbot, product and order management. Deployed services on Fedora homelab server with Docker.",
     },
+    problem: {
+      vi: "Tìm kiếm nước hoa bằng keyword thông thường không capture được sở thích cá nhân và ngữ cảnh — người dùng cần tư vấn semantic thay vì chỉ matching theo tên.",
+      en: "Traditional keyword-based perfume search doesn't capture personal preferences and context — users need semantic recommendation, not just name matching.",
+    },
+    whatIBuilt: {
+      vi: "Hệ thống multi-stage AI pipeline: keyword extraction → product retrieval (hybrid search) → AI filtering & reranking → final response. Backend chính bằng ASP.NET Core, AI service bằng NestJS, frontend React + Flutter mobile.",
+      en: "Multi-stage AI pipeline system: keyword extraction → product retrieval (hybrid search) → AI filtering & reranking → final response. Main backend with ASP.NET Core, AI service with NestJS, React frontend + Flutter mobile.",
+    },
+    highlights: [
+      { vi: "Hybrid search: BM25 + pgvector cho semantic perfume recommendation", en: "Hybrid search: BM25 + pgvector for semantic perfume recommendation" },
+      { vi: "Redis Pub/Sub messaging giữa main backend và AI service", en: "Redis Pub/Sub messaging between main backend and AI service" },
+      { vi: "PostgreSQL với pgvector extension cho vector storage", en: "PostgreSQL with pgvector extension for vector storage" },
+      { vi: "Docker Compose multi-container deployment trên Fedora homelab", en: "Docker Compose multi-container deployment on Fedora homelab" },
+    ],
+    challenges: {
+      vi: "Pure vector retrieval cho kết quả relevance không ổn định — dẫn đến việc khám phá hybrid search approach. Resource constraint trên homelab yêu cầu tối ưu memory và CPU cho multi-container setup.",
+      en: "Pure vector retrieval produced inconsistent relevance — leading to exploring hybrid search approaches. Resource constraints on the homelab required optimizing memory and CPU for the multi-container setup.",
+    },
+    learned: {
+      vi: "Học được cách retrieval quality, latency và AI orchestration ảnh hưởng trực tiếp đến trải nghiệm người dùng. Đồng thời hiểu rõ hơn về tradeoff giữa vector-only và hybrid search trong thực tế.",
+      en: "Learned how retrieval quality, latency, and AI orchestration directly impact user experience. Also gained deeper understanding of tradeoffs between vector-only and hybrid search in practice.",
+    },
+    architectureFlow: [
+      "User Prompt",
+      "→ Keyword Extraction",
+      "→ Hybrid Retrieval (BM25 + pgvector)",
+      "→ AI Filtering & Reranking",
+      "→ Final Response",
+    ],
     technologies: [
       "React", "Flutter", "ASP.NET Core", "NestJS", "PostgreSQL",
       "Redis", "Docker", "Supabase", "Linux (Fedora)",
@@ -279,6 +374,34 @@ export const projects: Project[] = [
       vi: "Nền tảng hỗ trợ học tập với tính năng upload tài liệu, flashcard và phân tích AI. Các service được triển khai trên homelab server cá nhân.",
       en: "Learning platform with document upload, flashcards, and AI analysis features. Services deployed on personal homelab server.",
     },
+    problem: {
+      vi: "Sinh viên cần công cụ tổng hợp tài liệu học tập dài thành flashcard và tóm tắt — manual processing tốn thời gian và inconsistency.",
+      en: "Students need tools to summarize long study materials into flashcards and summaries — manual processing is time-consuming and inconsistent.",
+    },
+    whatIBuilt: {
+      vi: "Platform upload tài liệu → AI extraction & chunking → flashcard generation → spaced repetition learning. Backend ASP.NET Core cho API chính, SQL Server cho data, React frontend.",
+      en: "Platform for document upload → AI extraction & chunking → flashcard generation → spaced repetition learning. ASP.NET Core backend for main API, SQL Server for data, React frontend.",
+    },
+    highlights: [
+      { vi: "Document upload + AI-powered extraction và chunking", en: "Document upload + AI-powered extraction and chunking" },
+      { vi: "Flashcard generation tự động từ tài liệu", en: "Automatic flashcard generation from documents" },
+      { vi: "SQL Server cho structured data storage", en: "SQL Server for structured data storage" },
+      { vi: "Docker deployment trên homelab Fedora", en: "Docker deployment on Fedora homelab" },
+    ],
+    challenges: {
+      vi: "Chunking strategy ảnh hưởng trực tiếp đến chất lượng flashcard — quá lớn thì mất context, quá nhỏ thì fragment knowledge. Phải iterate nhiều lần để tìm balance.",
+      en: "Chunking strategy directly impacts flashcard quality — too large loses context, too small fragments knowledge. Required multiple iterations to find the right balance.",
+    },
+    learned: {
+      vi: "Học được limitations của pure vector retrieval và tầm quan trọng của chunking strategy trong RAG pipeline.",
+      en: "Learned the limitations of pure vector retrieval and the importance of chunking strategy in RAG pipelines.",
+    },
+    architectureFlow: [
+      "Upload Document",
+      "→ AI Extraction & Chunking",
+      "→ Flashcard Generation",
+      "→ Spaced Repetition",
+    ],
     technologies: ["React", "ASP.NET Core", "SQL Server", "PostgreSQL", "Docker", "Linux (Fedora)"],
     links: [
       { label: { vi: "Front-end", en: "Front-end" }, url: "https://github.com/FPTU-ChillGuys/studeehub-frontend" },
@@ -313,6 +436,33 @@ export const projects: Project[] = [
       vi: "Hệ thống quản lý Claim Request với Approval Workflow và Dashboard cho doanh nghiệp.",
       en: "Claim request management system with approval workflow and dashboard for enterprises.",
     },
+    problem: {
+      vi: "Quy trình claim request nội bộ bằng paper/email chậm, dễ mất và khó theo dõi trạng thái.",
+      en: "Internal claim request process via paper/email is slow, prone to loss, and hard to track status.",
+    },
+    whatIBuilt: {
+      vi: "Enterprise web app với multi-step approval workflow, role-based dashboard, và real-time status tracking. React + TypeScript frontend tích hợp với ASP.NET Core backend.",
+      en: "Enterprise web app with multi-step approval workflow, role-based dashboard, and real-time status tracking. React + TypeScript frontend integrated with ASP.NET Core backend.",
+    },
+    highlights: [
+      { vi: "Multi-step approval workflow với role-based access control", en: "Multi-step approval workflow with role-based access control" },
+      { vi: "Dashboard real-time cho quản lý và tracking", en: "Real-time dashboard for management and tracking" },
+      { vi: "Form validation, filter, pagination phức tạp", en: "Complex form validation, filtering, and pagination" },
+    ],
+    challenges: {
+      vi: "Workflow phức tạp với nhiều role và state transition — phải xử lý edge case khi reject và resubmit.",
+      en: "Complex workflow with multiple roles and state transitions — handling edge cases for rejection and resubmission.",
+    },
+    learned: {
+      vi: "Kinh nghiệm thực tế với enterprise workflow pattern và role-based UI rendering trong môi trường professional.",
+      en: "Practical experience with enterprise workflow patterns and role-based UI rendering in a professional environment.",
+    },
+    architectureFlow: [
+      "Submit Request",
+      "→ Manager Review",
+      "→ Finance Approval",
+      "→ Completed / Rejected",
+    ],
     technologies: ["React", "TypeScript"],
     links: [],
     teamSize: 0,
@@ -352,6 +502,33 @@ export const projects: Project[] = [
       vi: "Hệ thống đặt hàng và giao hàng cá Koi với quản lý đơn hàng và khách hàng.",
       en: "Koi fish delivery order system with order and customer management.",
     },
+    problem: {
+      vi: "Quản lý đơn hàng cá Koi thủ công dễ nhầm lẫn và không theo dõi được trạng thái giao hàng.",
+      en: "Manual Koi fish order management is error-prone and lacks delivery status tracking.",
+    },
+    whatIBuilt: {
+      vi: "Hệ thống đặt hàng và giao hàng với module quản lý đơn hàng, khách hàng, và tracking. Full-stack: React frontend + ASP.NET Core backend + SQL Server database.",
+      en: "Order and delivery system with order management, customer management, and tracking modules. Full-stack: React frontend + ASP.NET Core backend + SQL Server database.",
+    },
+    highlights: [
+      { vi: "CRUD operations cho đơn hàng và khách hàng", en: "CRUD operations for orders and customers" },
+      { vi: "Responsive UI với React", en: "Responsive UI with React" },
+      { vi: "ASP.NET Core RESTful API backend", en: "ASP.NET Core RESTful API backend" },
+    ],
+    challenges: {
+      vi: "Dự án full-stack đầu tiên — phải hiểu toàn bộ flow từ database schema đến API design đến frontend state management.",
+      en: "First full-stack project — had to understand the entire flow from database schema to API design to frontend state management.",
+    },
+    learned: {
+      vi: "Nền tảng cho việc hiểu end-to-end system design và full-stack development workflow.",
+      en: "Foundation for understanding end-to-end system design and full-stack development workflow.",
+    },
+    architectureFlow: [
+      "Place Order",
+      "→ Process & Assign",
+      "→ Delivery Tracking",
+      "→ Completed",
+    ],
     technologies: ["React", "ASP.NET Core", "SQL Server"],
     links: [
       {

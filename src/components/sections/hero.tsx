@@ -25,7 +25,6 @@ export function Hero() {
         }`}
       >
         <div className="flex flex-col items-center gap-6 text-center">
-          {/* Avatar */}
           <Avatar className="size-32 border border-border">
             <AvatarFallback className="bg-muted text-3xl font-bold text-foreground">
               VQN
@@ -33,7 +32,7 @@ export function Hero() {
           </Avatar>
 
           <div className="space-y-3">
-            <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+            <p className="text-sm font-medium uppercase tracking-widest text-primary">
               {t.hero.subtitle}
             </p>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
@@ -48,18 +47,14 @@ export function Hero() {
             {lt(hero.brief, locale)}
           </p>
 
-          {/* Tech badges */}
           <div className="flex flex-wrap justify-center gap-2">
-            {["React", "ASP.NET Core", "Next.js", "PostgreSQL", "Docker"].map(
-              (tech) => (
-                <Badge key={tech} variant="secondary">
-                  {tech}
-                </Badge>
-              )
-            )}
+            {hero.techBadges.map((tech) => (
+              <Badge key={tech} variant="secondary">
+                {tech}
+              </Badge>
+            ))}
           </div>
 
-          {/* CTA buttons */}
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <Button size="lg" nativeButton={false} render={<a href="#contact" />}>
               <Mail className="mr-2 size-4" />
@@ -97,7 +92,6 @@ export function Hero() {
             </Button>
           </div>
 
-          {/* Scroll indicator */}
           <a
             href="#about"
             className="mt-8 animate-bounce text-muted-foreground transition-colors hover:text-foreground"

@@ -15,24 +15,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vũ Quang Nguyên — Software Developer",
+  title: "Vũ Quang Nguyên — Backend-Oriented Fullstack Developer",
   description:
-    "Portfolio của Vũ Quang Nguyên — Sinh viên năm cuối Kỹ thuật Phần mềm, Đại học FPT. Kinh nghiệm với ASP.NET Core, React, PostgreSQL, Redis, Docker.",
+    "Portfolio của Vũ Quang Nguyên — Backend & AI Application Developer. Kinh nghiệm với ASP.NET Core, NestJS, PostgreSQL, Docker, RAG, vector search. Vận hành homelab và deployment thực tế.",
   keywords: [
     "Vũ Quang Nguyên",
-    "Software Developer",
+    "Backend Developer",
+    "AI Developer",
     "Full-stack",
-    "React",
     "ASP.NET Core",
+    "NestJS",
     "PostgreSQL",
     "Docker",
+    "RAG",
+    "Vector Search",
+    "Homelab",
     "Portfolio",
   ],
   authors: [{ name: "Vũ Quang Nguyên" }],
   openGraph: {
-    title: "Vũ Quang Nguyên — Software Developer",
+    title: "Vũ Quang Nguyên — Backend-Oriented Fullstack Developer",
     description:
-      "Portfolio của Vũ Quang Nguyên — Kinh nghiệm phát triển backend & full-stack.",
+      "Backend & AI Application Developer. Xây dựng hệ thống backend, retrieval systems, và deployment thực tế.",
     type: "website",
     locale: "vi_VN",
   },
